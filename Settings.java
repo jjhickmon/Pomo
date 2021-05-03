@@ -5,7 +5,6 @@ import java.util.*;
 
 public class Settings {
   Properties configFile;
-
   public Settings(){
     configFile = new Properties();
     try {
