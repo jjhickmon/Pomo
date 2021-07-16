@@ -1,8 +1,13 @@
+package src;
+
 import java.util.HashMap;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferStrategy;
 import javax.swing.*;
+
+import src.backend.*;
+
 import java.time.Instant;
 import java.time.Duration;
 import java.time.temporal.*;
@@ -210,7 +215,7 @@ public class Display extends Canvas implements Runnable{
 		} else if(studying){
 			study_time = Duration.between(start_study.plusSeconds(pause_time.getSeconds()), Instant.now());
 			totalTime = prevTotalTime.plusSeconds(study_time.getSeconds());
-			if(study_time.getSeconds() + 1 == target_study.getSeconds()){
+			if(study_time.getSeconds() + 1 >= target_study.getSeconds()){
 				playSound();
 				if(curr_sesh == sessions){
 					studying = false;
@@ -236,7 +241,7 @@ public class Display extends Canvas implements Runnable{
 		} else if(take_break){
 			break_time = Duration.between(start_break.plusSeconds(pause_time.getSeconds()), Instant.now());
 			totalTime = prevTotalTime.plusSeconds(break_time.getSeconds());
-			if(break_time.getSeconds() + 1 == target_break.getSeconds()){
+			if(break_time.getSeconds() + 1 >= target_break.getSeconds()){
 				playSound();
 				studying = true;
 				take_break = false;

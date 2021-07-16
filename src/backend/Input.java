@@ -1,7 +1,11 @@
+package src.backend;
+
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.time.Instant;
+import src.Display;
+
 import java.time.Duration;
 
 public class Input implements KeyListener{
